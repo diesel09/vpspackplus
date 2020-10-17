@@ -763,8 +763,8 @@ open_websocket(){
 trojan_go_basic_information() {
   {
 echo -e "
-${GREEN} ::::::::::::: Trojan-GO + tls ::::::::::::::::
-${BLUE} ::::::::::: Trojan-GO INFORMACION :::::::::::::
+${GREEN} ::::::══════ Trojan-GO + tls ══════::::::
+${BLUE} ═════════ Trojan-GO INFORMACION ══════════
 ${GREEN}DOMINIO：${domain}
 ${GREEN}PUERTO: 443
 ${GREEN}CONTRASEÑA：${password}
@@ -772,7 +772,7 @@ ${GREEN}websocketESTADO：${websocket_status}
 ${GREEN}websocketPATH：${websocket_path}
 ${GREEN}websocketMULTIPLE TLS：${double_tls}
 ${GREEN}CONTRASEÑA OFUSCADA：${obfuscation_password}
-${BLUE}:::::::::::::: VISITE SU SITIO ::::::::::::::::
+${BLUE} ═════════════ VISITE SU SITIO ════════════
 ${GREEN}DETALLES：https://${domain}/${uuid}.html${NO_COLOR}"
 } | tee /etc/motd
 }
@@ -966,9 +966,9 @@ uninstall_all(){
 }
 main() {
   echo -e "
-${GREEN} ::::::::::::::::::::::::::::::::  
-${BLUE} ♪  ─═ VPSPACK v. $vpspackversion ═─   ♪
-${GREEN} ::::::::::::::::::::::::::::::::
+${GREEN} :::::════::::::════::::::════:::::  
+${BLUE} ╚>♞ VPSPACK v. $vpspackversion ♞<╝
+${GREEN} :::::════::::::════::::::════:::::
 ${GREEN}1. Trojan-GO + nginx + tls
 ${GREEN}2. Trojan-GO + caddy + tls
 ${GREEN}3. DESINSTALAR TODO 
