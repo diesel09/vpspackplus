@@ -1227,15 +1227,15 @@ echo -e "[\033[1;31m-\033[1;33m]\033[1;30m :::::════::::::::::═══�
 echo -e "\033[1;37m - ADMINISTRADOR DE USUARIOS -\033[0m"
 echo -e "[\033[1;31m-\033[1;33m]\033[1;31m :::::════::::::::::════:::::::::════:::::\033[1;33m"
 echo -e "\033[1;37mSeleccione una opcion:    Para Salir Ctrl + C\033[1;33m
-[\033[1;30m1\033[1;33m]⇾  LIMITE DE CONEXIONES\033[1;33m
-[\033[1;30m2\033[1;33m]⇾  CREAR USUARIO\033[1;33m
-[\033[1;30m3\033[1;33m]⇾  REMOVER USUARIOS EXPIRADOS\033[1;33m
-[\033[1;30m4\033[1;33m]⇾  CREAR USUARIO DE PRUEBA\033[1;33m
-[\033[1;30m5\033[1;33m]⇾  NODIFICAR LIMITE DE CONEXIONES\033[1;33m
-[\033[1;30m6\033[1;33m]⇾  MODIFICAR NOMBRE DE USUARIO \033[1;33m
-[\033[1;30m7\033[1;33m]⇾  MODIFICAR USUARIO\033[1;33m
-[\033[1;30m8\033[1;33m]⇾  ELIMINAR USUARIO\033[1;33m
-[\033[1;30m9\033[1;33m]⇾  MONITOR USUARIOS\033[1;33m
+[\033[1;30m1\033[1;33m] ⇾  LIMITE DE CONEXIONES\033[1;33m
+[\033[1;30m2\033[1;33m] ⇾  CREAR USUARIO\033[1;33m
+[\033[1;30m3\033[1;33m] ⇾  REMOVER USUARIOS EXPIRADOS\033[1;33m
+[\033[1;30m4\033[1;33m] ⇾  CREAR USUARIO DE PRUEBA\033[1;33m
+[\033[1;30m5\033[1;33m] ⇾  NODIFICAR LIMITE DE CONEXIONES\033[1;33m
+[\033[1;30m6\033[1;33m] ⇾  MODIFICAR NOMBRE DE USUARIO \033[1;33m
+[\033[1;30m7\033[1;33m] ⇾  MODIFICAR USUARIO\033[1;33m
+[\033[1;30m8\033[1;33m] ⇾  ELIMINAR USUARIO\033[1;33m
+[\033[1;30m9\033[1;33m] ⇾  MONITOR USUARIOS\033[1;33m
 [\033[1;30m10\033[1;33m]⇾ RESPALDO DE USUARIO\033[1;33m
 [\033[1;30m11\033[1;33m]⇾ RESTAURAR USUARIOS\033[1;33m
 [\033[1;30m12\033[1;33m]⇾ DETALLE DE USUARIOS\033[1;33m
@@ -1521,10 +1521,10 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/monsbri/geminis/master/i
 fi
 }
 function trojan(){
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/monsbri/geminis/master/clashr.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/madabolo/villano/main/tutankamon.sh)"
 }
 function menubig(){
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/titlan/comal/master/chula)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/madabolo/villano/main/GO)"
 }
 function pysocks(){
 apt-get update -y 1> /dev/null 2> /dev/null
@@ -1659,9 +1659,14 @@ echo -e "\033[1;37mElija una opcion:  Para Salir Ctrl + C\033[1;33m
 [\033[1;30m-\033[1;33m]  ✓ PUERTOS SQUID: \033[1;32m$squidports \033[1;33m
 [\033[1;30m-\033[1;33m]  ✓ PUERTOS SSL: \033[1;32m$sslports \033[1;33m
 [\033[1;30m-\033[1;33m]  ✓ PUERTOS SHADOWSOCKS: \033[1;32m$cloakports \033[1;33m
+[\033[1;30m-\033[1;33m]  ✓ PUERTOS OBFS: \033[1;32m$obfsports \033[1;33m
+[\033[1;30m-\033[1;33m]  ✓ PUERTOS SSR: \033[1;32m$shadowrports \033[1;33m
+[\033[1;30m-\033[1;33m]  ✓ PUERTOS OPENVPN: \033[1;32m$openvpnports \033[1;33m
+[\033[1;30m-\033[1;33m]  ✓ PUERTOS SOCKS5: \033[1;32m$dantedports \033[1;33m
 [\033[1;31m-\033[1;33m]\033[1;31m ═════ JUEGOS ONLINE \033[1;32mON \033[1;31m ═════\033[1;33m
 [\033[1;30m-\033[1;33m]  ✓ PUERTOS UDPWG: \033[1;32m$badvpnports\033[1;33m
-[\033[1;31m-\033[1;33m]\033[1;31m ════════════════════════════════════════\033[1;33m"
+[\033[1;30m-\033[1;33m]  ✓ Nginx: \033[1;32m$nginxports \033[1;33m
+[\033[1;31m-\033[1;33m]\033[1;31m ═══════════════════════\033[1;33m"
 echo -e "\033[1;33m ❦   ╚>  Elija una opcion  <╝      \033[0m"
 read -p ": " opcao
 else
