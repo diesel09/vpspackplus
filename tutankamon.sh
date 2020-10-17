@@ -46,23 +46,23 @@ Port80=`netstat -tlpn | awk -F '[: ]+' '$1=="tcp"{print $5}' | grep -w 80`
 Port443=`netstat -tlpn | awk -F '[: ]+' '$1=="tcp"{print $5}' | grep -w 443`
 if [ -n "$Port80" ]; then
     process80=`netstat -tlpn | awk -F '[: ]+' '$5=="80"{print $9}'`
-    red "==========================================================="
+    red "════════════════════════════════════════════════════════════"
     red "El puerto 80 está ocupado, el puerto ocupado es: ${process80},la instalación terminó"
-    red "==========================================================="
+    red "════════════════════════════════════════════════════════════"
     exit 1
 fi
 if [ -n "$Port443" ]; then
     process443=`netstat -tlpn | awk -F '[: ]+' '$5=="443"{print $9}'`
-    red "============================================================="
+    red "════════════════════════════════════════════════════════════"
     red "El puerto 443 está ocupado, el puerto ocupado es: ${process443},la instalación terminó"
-    red "============================================================="
+    red "════════════════════════════════════════════════════════════"
     exit 1
 fi
 CHECK=$(grep SELINUX= /etc/selinux/config | grep -v "#")
 if [ "$CHECK" == "SELINUX=enforcing" ]; then
-    red "======================================================================="
+    red "════════════════════════════════════════════════════════════"
     red "Para evitar que no se pueda solicitar un certificado, reinicie el VPS antes de ejecutar este script"
-    red "======================================================================="
+    red "════════════════════════════════════════════════════════════"
     read -p "¿Quieres reiniciar ahora? Por favor ingresa [Y/n] :" yn
 	[ -z "${yn}" ] && yn="y"
 	if [[ $yn == [Yy] ]]; then
@@ -74,9 +74,9 @@ if [ "$CHECK" == "SELINUX=enforcing" ]; then
     exit
 fi
 if [ "$CHECK" == "SELINUX=permissive" ]; then
-    red "======================================================================="
+    red "═══════════════════════════════════════════════════════════════════════"
     red "Para evitar que no se pueda solicitar un certificado, reinicie el VPS antes de ejecutar este script."
-    red "======================================================================="
+    red "═══════════════════════════════════════════════════════════════════════"
     read -p "¿Quieres reiniciar ahora? Por favor ingresa [Y/n] :" yn
 	[ -z "${yn}" ] && yn="y"
 	if [[ $yn == [Yy] ]]; then
@@ -89,15 +89,15 @@ if [ "$CHECK" == "SELINUX=permissive" ]; then
 fi
 if [ "$release" == "centos" ]; then
     if  [ -n "$(grep ' 6\.' /etc/redhat-release)" ] ;then
-    red "==============="
+    red "════════════════════════════════"
     red "El sistema actual no es compatible"
-    red "==============="
+    red "════════════════════════════════"
     exit
     fi
     if  [ -n "$(grep ' 5\.' /etc/redhat-release)" ] ;then
-    red "==============="
+    red "════════════════════════════════"
     red "El sistema actual no es compatible"
-    red "==============="
+    red "════════════════════════════════"
     exit
     fi
     systemctl stop firewalld
@@ -105,15 +105,15 @@ if [ "$release" == "centos" ]; then
     rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 elif [ "$release" == "ubuntu" ]; then
     if  [ -n "$(grep ' 14\.' /etc/os-release)" ] ;then
-    red "==============="
+    red "════════════════════════════════"
     red "El sistema actual no es compatible"
-    red "==============="
+    red "════════════════════════════════"
     exit
     fi
     if  [ -n "$(grep ' 12\.' /etc/os-release)" ] ;then
-    red "==============="
+    red "════════════════════════════════"
     red "El sistema actual no es compatible"
-    red "==============="
+    red "════════════════════════════════"
     exit
     fi
     systemctl stop ufw
@@ -123,16 +123,16 @@ fi
 $systemPackage -y install  nginx wget unzip zip curl tar >/dev/null 2>&1
 systemctl enable nginx
 systemctl stop nginx
-green "======================="
+green "═════════════════════════════════════════════"
 blue "Ingrese el nombre de dominio vinculado a su IP"
-green "======================="
+green "═════════════════════════════════════════════"
 read your_domain
 real_addr=`ping ${your_domain} -c 1 | sed '1{s/[^(]*(//;s/).*//;q}'`
 local_addr=`curl ipv4.icanhazip.com`
 if [ $real_addr == $local_addr ] ; then
-	green "=========================================="
+	green "══════════════════════════════"
 	green "    Comience a instalar Trojan"
-	green "=========================================="
+	green "══════════════════════════════"
 	sleep 1s
 cat > /etc/nginx/nginx.conf <<-EOF
 user  root;
@@ -295,33 +295,33 @@ EOF
 	chmod +x ${systempwd}trojan.service
 	systemctl start trojan.service
 	systemctl enable trojan.service
-	green "======================================================================"
+	green "══════════════════════════════════════════════════════════════════════════════════"
 	green "Trojan se ha instalado,utilice el enlace a continuación para descargar su servidor"
 	green "1. Copie el enlace a continuación"
 	blue "http://${your_domain}/$trojan_path/trojan-cli.zip"
-	green "======================================================================"
+	green "══════════════════════════════════════════════════════════════════════════════════"
 	else
-        red "==================================="
+        red "══════════════════════════════════════════════════════════════════════════════════"
 	red "No hay resultado de aplicación para el certificado https y falla la instalación automática"
 	green "No se preocupe, puede corregir la solicitud de certificado manualmente"
 	green "1. Reiniciar VPS"
 	green "2. Vuelva a ejecutar el script y use la función de certificado de reparación"
-	red "==================================="
+	red "══════════════════════════════════════════════════════════════════════════════════"
 	fi
 	
 else
-	red "================================"
+	red "════════════════════════════════"
 	red "SU DOMINIO NO COINCIDE CON LA IP"
-	red "ASEGURESE QUE SU IP APUNTA A SU DOMINIO"
-	red "================================"
+	red "ASEGURESE QUE LA IP APUNTA A SU DOMINIO"
+	red "════════════════════════════════"
 fi
 }
 
 function repair_cert(){
-green "======================="
+green "══════════════════════════════"
 blue "INGRESE EL NOMBRE DE SU DOMINIO"
 blue "ASEGURESE QUE ES CORRECTO"
-green "======================="
+green "══════════════════════════════"
 read your_domain
 real_addr=`ping ${your_domain} -c 1 | sed '1{s/[^(]*(//;s/).*//;q}'`
 local_addr=`curl ipv4.icanhazip.com`
@@ -338,18 +338,18 @@ if [ $real_addr == $local_addr ] ; then
     	red "No se pudo solicitar el certificado"
     fi
 else
-    red "================================"
+    red "════════════════════════════════"
     red "SU DOMINIO NO COINCIDE CON LA IP"
     red "ASEGURESE QUE SU IP APUNTA A SU DOMINIO"
-    red "================================"
+    red "════════════════════════════════"
 fi	
 }
 
 function remove_trojan(){
-    red "================================"
+    red "════════════════════════════════"
     red "se desinstalara Trojan"
     red "desinstalando nginx"
-    red "================================"
+    red "════════════════════════════════"
     systemctl stop trojan
     systemctl disable trojan
     rm -f ${systempwd}trojan.service
@@ -360,22 +360,22 @@ function remove_trojan(){
     fi
     rm -rf /usr/src/trojan*
     rm -rf /usr/share/nginx/html/*
-    green "=============="
+    green "════════════════"
     green "Trojan eliminado"
-    green "=============="
+    green "════════════════"
 }
 
 function update_trojan(){
-    green "======================"
+    green "═════════════"
     green "en desarrollo"
-    green "======================"
+    green "═════════════"
 }
 
 start_menu(){
     clear
-    green " ===================================="
-    green "    T R O J A N              "
-    green " ===================================="
+    green "════════════════════"
+    green "    T R O J A N     "
+    green "════════════════════"
     echo
     green " 1. INSTALAR Trojan"
     red " 2. DESINSTALAR Trojan"
