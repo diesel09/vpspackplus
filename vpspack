@@ -1227,20 +1227,20 @@ echo -e "[\033[1;31m-\033[1;33m]\033[1;30m :::::════::::::::::═══�
 echo -e "\033[1;37m - ADMINISTRADOR DE USUARIOS -\033[0m"
 echo -e "[\033[1;31m-\033[1;33m]\033[1;31m :::::════::::::::::════:::::::::════:::::\033[1;33m"
 echo -e "\033[1;37mSeleccione una opcion:    Para Salir Ctrl + C\033[1;33m
-[\033[1;30m1\033[1;33m] ⇾  LIMITE DE CONEXIONES\033[1;33m
-[\033[1;30m2\033[1;33m] ⇾  CREAR USUARIO\033[1;33m
-[\033[1;30m3\033[1;33m] ⇾  REMOVER USUARIOS EXPIRADOS\033[1;33m
-[\033[1;30m4\033[1;33m] ⇾  CREAR USUARIO DE PRUEBA\033[1;33m
-[\033[1;30m5\033[1;33m] ⇾  NODIFICAR LIMITE DE CONEXIONES\033[1;33m
-[\033[1;30m6\033[1;33m] ⇾  MODIFICAR NOMBRE DE USUARIO \033[1;33m
-[\033[1;30m7\033[1;33m] ⇾  MODIFICAR USUARIO\033[1;33m
-[\033[1;30m8\033[1;33m] ⇾  ELIMINAR USUARIO\033[1;33m
-[\033[1;30m9\033[1;33m] ⇾  MONITOR USUARIOS\033[1;33m
+[\033[1;30m1\033[1;33m] ⇾ LIMITE DE CONEXIONES\033[1;33m
+[\033[1;30m2\033[1;33m] ⇾ CREAR USUARIO\033[1;33m
+[\033[1;30m3\033[1;33m] ⇾ REMOVER USUARIOS EXPIRADOS\033[1;33m
+[\033[1;30m4\033[1;33m] ⇾ CREAR USUARIO DE PRUEBA\033[1;33m
+[\033[1;30m5\033[1;33m] ⇾ NODIFICAR LIMITE DE CONEXIONES\033[1;33m
+[\033[1;30m6\033[1;33m] ⇾ MODIFICAR NOMBRE DE USUARIO \033[1;33m
+[\033[1;30m7\033[1;33m] ⇾ MODIFICAR USUARIO\033[1;33m
+[\033[1;30m8\033[1;33m] ⇾ ELIMINAR USUARIO\033[1;33m
+[\033[1;30m9\033[1;33m] ⇾ MONITOR USUARIOS\033[1;33m
 [\033[1;30m10\033[1;33m]⇾ RESPALDO DE USUARIO\033[1;33m
 [\033[1;30m11\033[1;33m]⇾ RESTAURAR USUARIOS\033[1;33m
 [\033[1;30m12\033[1;33m]⇾ DETALLE DE USUARIOS\033[1;33m
 [\033[1;30m13\033[1;33m]⇾ ELIMINAR TODOS LOS USUARIOS\033[1;33m
-[\033[1;30m0\033[1;33m]↫ REGRESAR \033[1;33m"
+[\033[1;30m0\033[1;33m] ↫ REGRESAR \033[1;33m"
 read -p ": " opcao
 else
 opcao=$1
@@ -1632,7 +1632,7 @@ clear
 if [[ $1 == "" ]]
 then
 clear
-echo -e "\033[1;37m      ╚>  ♞ VPSPACK v. $vpspackversion ♞  <╝\033[0m"
+echo -e "\033[1;37m    ╚>  ♞ VPSPACK v. $vpspackversion ♞  <╝\033[0m"
 echo -e "[\033[1;31m-\033[1;33m]\033[1;30m :::::════:::::::::════::::::::════:::::\033[1;33m"
 echo -e "\033[1;37m ● Linux Dist:	$distribution › Version: $os_version\033[0m"
 echo -e "\033[1;37m ● IP VPS:       $ip\033[0m"
@@ -1642,7 +1642,7 @@ echo -e "\033[1;37mElija una opcion:  Para Salir Ctrl + C\033[1;33m
 [\033[1;30m1\033[1;33m]  ▻ INSTALAR SQUID/DROPBEAR\033[1;33m
 [\033[1;30m2\033[1;33m]  ▻ ADMINISTRADOR DE USUARIOS\033[1;33m
 [\033[1;31m-\033[1;33m]\033[1;31m :::::════:::::════:::::════:::::\033[1;33m
-[\033[1;30m3\033[1;33m]  ▻ MODIFICAR BANNER\033[1;33m
+[\033[1;30m3\033[1;33m]  ▻ CREAR BANNER\033[1;33m
 [\033[1;30m4\033[1;33m]  ▻ DETALLES DE SISTEMA\033[1;33m
 [\033[1;30m5\033[1;33m]  ▻ PUERTOS ABIERTOS\033[1;33m
 [\033[1;30m6\033[1;33m]  ▻ HERRAMIENTAS \033[1;33m
@@ -1666,8 +1666,8 @@ echo -e "\033[1;37mElija una opcion:  Para Salir Ctrl + C\033[1;33m
 [\033[1;31m-\033[1;33m]\033[1;31m ═════ JUEGOS ONLINE \033[1;32mON \033[1;31m ═════\033[1;33m
 [\033[1;30m-\033[1;33m]  ✓ PUERTOS UDPWG: \033[1;32m$badvpnports\033[1;33m
 [\033[1;30m-\033[1;33m]  ✓ Nginx: \033[1;32m$nginxports \033[1;33m
-[\033[1;31m-\033[1;33m]\033[1;31m ═══════════════════════\033[1;33m"
-echo -e "\033[1;33m ❦   ╚>  Elija una opcion  <╝      \033[0m"
+[\033[1;31m-\033[1;33m]\033[1;31m ═════════════════════════════\033[1;33m"
+echo -e "\033[1;33m ❦  ╚>  Elija una opcion  <╝     \033[0m"
 read -p ": " opcao
 else
 opcao=$1
