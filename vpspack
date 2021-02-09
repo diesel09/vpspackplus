@@ -1521,10 +1521,10 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/monsbri/geminis/master/i
 fi
 }
 function trojan(){
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/madabolo/villano/main/tutankamon.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/diesel09/vpspackplus/main/tutankamon.sh)"
 }
 function menubig(){
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/madabolo/villano/main/GO)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/diesel09/vpspackplus/main/GO)"
 }
 function pysocks(){
 apt-get update -y 1> /dev/null 2> /dev/null
